@@ -3,28 +3,27 @@ project(dual_camera_stream_multithread)
 
 # -------------------------- [ SET OPENCV DIRECTORY PATH TO POINT TOWARDS OpenCVConfig.cmake FILE ] -------------------------- #
 # Windows path
-#set(OpenCV_DIR "E:/Coding Folder/OpenCV Folder/build/install/x64/vc16/lib")  # Specify the path to the OpenCVConfig.cmake file
+# set(OpenCV_DIR "E:/Coding Folder/OpenCV Folder/build/install/x64/vc16/lib")  # Specify the path to the OpenCVConfig.cmake file
 # RPI Path NOT NEEDED
-#set(OpenCV_DIR "/home/pi/OpenCV/build/unix-install")
+# set(OpenCV_DIR "/home/pi/OpenCV/build/unix-install")
 # Jetson Nano path
 # Jetson Nano path NOT NEEDED
-#set(OpenCV_DIR "~/opencv/build")
+# set(OpenCV_DIR "~/opencv/build")
 
 # -------------------------- [ SET OpenCV_INCLUDE_DIRS TO POINT TOWARDS LIBRARIES ] -------------------------- #
 # Windows path
-#set(OpenCV_INCLUDE_DIRS "E:/Coding Folder/OpenCV Folder/build/install/x64/vc16/lib")
+# set(OpenCV_INCLUDE_DIRS "E:/Coding Folder/OpenCV Folder/build/install/x64/vc16/lib")
 # RPI Path
 # set(OpenCV_INCLUDE_DIRS, "~/opencv/include/opencv2/")
 
-#set(OpenCV_INCLUDE_DIRS, "~/opencv/include/opencv2/")
+# set(OpenCV_INCLUDE_DIRS, "~/opencv/include/opencv2/")
 # Jetson Nano path
-set(OpenCV_INCLUDE_DIRS, "~/opencv/build/include")
+set(OpenCV_INCLUDE_DIRS "~/opencv/build/include")
 
 # -------------------------- [ SET OpenCV_Version to 4.7 ] -------------------------- #
-
 set(OpenCV_VERSION "4.7")
-#set(OpenCV_LIBS "E:/Coding Folder/OpenCV Folder/build/install/x64/vc16/lib")
 
+# set(OpenCV_LIBS "E:/Coding Folder/OpenCV Folder/build/install/x64/vc16/lib")
 message(STATUS "                                                                         ")
 message(STATUS "-------------------------------------------------------------------------")
 message(STATUS "    ******** OpenCV library status ********")
@@ -45,7 +44,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Add executable
 add_executable(dual_camera_stream_multithread dual_camera_stream_multithread.cpp) # THIS WORKS
-#add_executable(dual_camera_stream ${SOURCES})
+
+# add_executable(dual_camera_stream ${SOURCES})
 
 # Include OpenCV headers
 include_directories(${OpenCV_INCLUDE_DIRS})
@@ -59,4 +59,4 @@ find_package(Threads REQUIRED)
 target_link_libraries(dual_camera_stream_multithread PRIVATE Threads::Threads)
 
 # Additional directory for the linker
-#link_directories("E:/Coding Folder/OpenCV Folder/build/lib/Release")
+# link_directories("E:/Coding Folder/OpenCV Folder/build/lib/Release")
